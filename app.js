@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var searchInsta = require('./src/models/searchInsta');
 
 const app = express();
-const port = 9999;
+const port = process.env.PORT || 9999;
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
