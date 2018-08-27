@@ -1,0 +1,23 @@
+{
+  "name": "insta-search",
+  "version": "1.0.0",
+  "description": "this is a simple application to search instagram users",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "insta"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "jssoup": "0.0.6",
+    "mongoose": "^5.0.7",
+    "request": "^2.83.0"
+  }
+}
