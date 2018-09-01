@@ -15,7 +15,7 @@ searchInsta.search = function(req, res){
 
         if(html!=undefined){
             const $ = cheerio.load(html);
-            const sharedData = JSON.parse($("body script").html().split("_sharedData = ")[1].split(";")[0]);
+            const sharedData = JSON.parse($("body script").html().split("_sharedData = ")[1].slice(0,-1));
             let graphhql = sharedData.entry_data.ProfilePage[0].graphql;
             res.send({'post':graphhql.user.edge_owner_to_timeline_media.count,
                 'imageUrl':graphhql.user.profile_pic_url,
