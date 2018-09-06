@@ -14,13 +14,20 @@ searchInsta.search = function(req, res){
     request.get(getOptions,(err,responce,html)=>{
 
         if(html!=undefined){
-            const $ = cheerio.load(html);
-            const sharedData = JSON.parse($("body script").html().split("_sharedData = ")[1].slice(0,-1));
-            let graphhql = sharedData.entry_data.ProfilePage[0].graphql;
-            res.send({'post':graphhql.user.edge_owner_to_timeline_media.count,
-                'imageUrl':graphhql.user.profile_pic_url,
-                'followers':graphhql.user.edge_followed_by.count,
-                'following':graphhql.user.edge_follow.count});
+
+            try {
+                const $ = cheerio.load(html);
+                const sharedData = JSON.parse($("body script").html().split("_sharedData = ")[1].slice(0,-1));
+                let graphhql = sharedData.entry_data.ProfilePage[0].graphql;
+                res.send({'post':graphhql.user.edge_owner_to_timeline_media.count,
+                    'imageUrl':graphhql.user.profile_pic_url,
+                    'followers':graphhql.user.edge_followed_by.count,
+                    'following':graphhql.user.edge_follow.count});
+            }
+            catch (e) {
+                res.status(404).send({});
+            }
+
         }
         else{
             res.status(404).send({});
