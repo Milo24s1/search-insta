@@ -68,8 +68,7 @@
 
                 },
                 error : function (xhr, ajaxOptions, thrownError) {
-
-                    if(xhr.status==404) {
+                    if(xhr.status!=200) {
                         alert('No Result Found');
                     }
                     $("#loader").addClass('hide');
