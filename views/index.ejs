@@ -31,6 +31,7 @@
                 <div class="col-md-4"></div>
                 <div id="profile_image" class="col-md-4">
                     <img src="" class="img-responsive img-circle">
+                    <h2></h2>
                 </div>
                 <div class="col-md-4"></div>
             </div>
@@ -63,6 +64,7 @@
                     $("#followers_count h2").text(data.followers);
                     $("#following_count h2").text(data.following);
                     $("#posts_count h2").text(data.post);
+                    $("#profile_image h2").text($('#username').val());
                     $("#loader").addClass('hide');
                     $("#stats").removeClass('hide');
 
